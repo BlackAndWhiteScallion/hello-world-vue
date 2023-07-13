@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          {{ message }}
+        </div>
+
+        <div id="app2">
+          <span v-bind:title="message">hover for title</span>
+        </div>
+        
+        <div id="app-3">
+          <span v-if="seen">Now you see me</span>
+          <a v-bind:href = "url" v-on:click="flight">click</a>
+        </div>
+        
+        <div id="app-4">
+          <ol>
+            <li v-for="i in todos">
+              {{ i.text }}
+            </li>
+          </ol>
+        </div>
+
+        <div id="app-5">
+          <p v-bind:class = "{active: reversed}" v-bind:style = "stylesobject" v-show = "reversed">{{ message }}</p>
+          <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+
+        <div id="app-6">
+          <p>{{ message }}</p>
+          <input type="password" v-model="message">
+          <p>{{ reverse }}</p>
+        </div>
+
+        <!-- Create an instance of the todo-item component -->
+        <div id="app-7">
+          <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+          >fff</todo-item>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
